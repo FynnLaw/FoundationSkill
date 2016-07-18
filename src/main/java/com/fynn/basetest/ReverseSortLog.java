@@ -21,18 +21,21 @@ public class ReverseSortLog {
 		try {
 			// read file content from file
             StringBuffer sb= new StringBuffer("");
-            FileReader reader = new FileReader("d://stdout.log");
+            FileReader reader = new FileReader("d://temp.txt");
             BufferedReader br = new BufferedReader(reader);
 
             String str = null;
             while((str = br.readLine()) != null) {
-            	  String ip = str.split(":")[2];
-            	  if(ipMap.containsKey(ip)){
-            		  Integer count = ipMap.get(ip); 
-            		  count = count + 1;
-            		  ipMap.put(ip, count);
-            	  }else{
-            		  ipMap.put(ip, 1);
+            	  String[] strArray = str.split(":");
+            	  if(strArray.length == 3 && strArray[0].equals("访问url")){
+            		  String ip = strArray[2];
+                	  if(ipMap.containsKey(ip)){
+                		  Integer count = ipMap.get(ip); 
+                		  count = count + 1;
+                		  ipMap.put(ip, count);
+                	  }else{
+                		  ipMap.put(ip, 1);
+                	  }
             	  }
             }
             
@@ -57,7 +60,7 @@ public class ReverseSortLog {
             }
             
             // write string to file
-            FileWriter writer = new FileWriter("d://stdoutReverse.log");
+            FileWriter writer = new FileWriter("d://result.txt");
             BufferedWriter bw = new BufferedWriter(writer);
             bw.write(sb.toString());
             bw.close();
