@@ -5,6 +5,8 @@ import org.xvolks.jnative.exceptions.NativeException;
 /**
  * @author user
  * 要求：jdk1.8 32位
+ * JNativeCpp.dll 放到c盘windows/system32文件夹中
+ * JNative.jar加入classPath
  */
 public class MusicLawBeep {
 	public static void main(String args[]) throws IllegalAccessException, NativeException{
