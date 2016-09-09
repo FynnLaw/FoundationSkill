@@ -2,7 +2,10 @@ package com.fynn.basetest;
 
 import org.xvolks.jnative.JNative;
 import org.xvolks.jnative.exceptions.NativeException;
-
+/**
+ * @author user
+ * 要求：jdk1.8 32位
+ */
 public class MusicLawBeep {
 	public static void main(String args[]) throws IllegalAccessException, NativeException{
 		int[] yinLv = new int[]{1,3,5,6,8,10,12,13};
